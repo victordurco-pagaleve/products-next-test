@@ -3,7 +3,7 @@
 import { useQuery } from "@tanstack/react-query"
 import { productsService } from "@/lib/services/products"
 import { Product } from "@/lib/types/product"
-import ProductCard from "@/components/ui/product-card"
+import ProductCard from "@/components/product-card"
 
 export default function ClientSideProductsPage() {
   const { data: products, isLoading, error } = useQuery<Product[]>({
@@ -30,9 +30,7 @@ export default function ClientSideProductsPage() {
             Erro ao carregar produtos
           </h2>
           <p className="text-muted-foreground">
-            {error instanceof Error
-              ? error.message
-              : "Ocorreu um erro ao buscar os produtos. Tente novamente."}
+           Ocorreu um erro ao buscar os produtos. Tente novamente.
           </p>
         </div>
       </div>

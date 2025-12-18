@@ -1,5 +1,5 @@
 import { productsService } from "@/lib/services/products"
-import ProductCard from "@/components/ui/product-card"
+import ProductCard from "@/components/product-card"
 
 export default async function ServerSideProductsPage() {
   let products

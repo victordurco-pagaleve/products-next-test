@@ -12,6 +12,11 @@ export const productsService = {
     return response.data;
   },
 
+  async getById(id: number): Promise<Product> {
+    const response = await api.get<Product>(`/products/${id}`);
+    return response.data;
+  },
+
   async getBySlug(slug: string): Promise<Product> {
     const response = await api.get<Product>(`/products/slug/${slug}`);
     return response.data;

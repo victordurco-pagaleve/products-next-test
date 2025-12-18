@@ -3,7 +3,7 @@
 import { useEffect, useState, useTransition } from "react"
 import { getProductsAction } from "@/lib/actions/products"
 import { Product } from "@/lib/types/product"
-import ProductCard from "@/components/ui/product-card"
+import ProductCard from "@/components/product-card"
 
 export default function ServerActionsProductsPage() {
   const [products, setProducts] = useState<Product[]>([])

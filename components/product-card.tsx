@@ -1,10 +1,22 @@
 "use client"
 
 import { Product } from "@/lib/types/product"
-import { Card, CardHeader, CardTitle, CardDescription, CardFooter } from "./card"
-import { Button } from "./button"
+import { Card, CardHeader, CardTitle, CardDescription, CardFooter } from "./ui/card"
+import { Button } from "./ui/button"
+import Link from "next/link"
+
+function createSlug(title: string): string {
+  return title
+    .toLowerCase()
+    .replace(/[^\w\s-]/g, "")
+    .replace(/\s+/g, "-")
+    .replace(/-+/g, "-")
+    .trim()
+}
 
 export default function ProductCard({ product }: { product: Product }) {
+  const slug = createSlug(product.title)
+
   return (
     <Card
       key={product.id}
@@ -39,9 +51,11 @@ export default function ProductCard({ product }: { product: Product }) {
       <span className="text-2xl font-bold text-primary">
         ${product.price}
       </span>
-      <Button variant="outline" className="cursor-pointer">
-        Detalhes
-      </Button>
+      <Link href={`/products/${slug}?id=${product.id}`}>
+        <Button variant="outline" className="cursor-pointer">
+          Detalhes
+        </Button>
+      </Link>
     </CardFooter>
   </Card>
   )
