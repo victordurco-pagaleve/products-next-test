@@ -1,15 +1,15 @@
-"use client";
+"use client"
 
-import { useQuery } from "@tanstack/react-query";
-import { productsService } from "@/lib/services/products";
-import { Product } from "@/lib/types/product";
-import ProductCard from "@/components/ui/product-card";
+import { useQuery } from "@tanstack/react-query"
+import { productsService } from "@/lib/services/products"
+import { Product } from "@/lib/types/product"
+import ProductCard from "@/components/ui/product-card"
 
 export default function ClientSideProductsPage() {
   const { data: products, isLoading, error } = useQuery<Product[]>({
     queryKey: ["products"],
     queryFn: () => productsService.getAll(),
-  });
+  })
 
   if (isLoading) {
     return (
@@ -19,7 +19,7 @@ export default function ClientSideProductsPage() {
           <p className="text-lg text-muted-foreground">Carregando...</p>
         </div>
       </div>
-    );
+    )
   }
 
   if (error) {
@@ -36,7 +36,7 @@ export default function ClientSideProductsPage() {
           </p>
         </div>
       </div>
-    );
+    )
   }
 
   return (
@@ -62,5 +62,5 @@ export default function ClientSideProductsPage() {
         )}
       </div>
     </div>
-  );
+  )
 }

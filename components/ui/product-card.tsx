@@ -1,6 +1,8 @@
-import { Product } from "@/lib/types/product";
-import { Card, CardHeader, CardTitle, CardDescription, CardFooter } from "./card";
-import { Button } from "./button";
+"use client"
+
+import { Product } from "@/lib/types/product"
+import { Card, CardHeader, CardTitle, CardDescription, CardFooter } from "./card"
+import { Button } from "./button"
 
 export default function ProductCard({ product }: { product: Product }) {
   return (
@@ -17,7 +19,7 @@ export default function ProductCard({ product }: { product: Product }) {
           alt={product.title}
           className="w-full h-full object-cover"
           onError={(e) => {
-            e.currentTarget.src = "https://placehold.co/400x400?text=No+Image";
+            e.currentTarget.src = "https://placehold.co/400x400?text=No+Image"
           }}
         />
       )}
@@ -42,5 +44,5 @@ export default function ProductCard({ product }: { product: Product }) {
       </Button>
     </CardFooter>
   </Card>
-  );
+  )
 }
